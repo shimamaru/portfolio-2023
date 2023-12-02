@@ -23,41 +23,28 @@
 
   <body>
     <!-- Header -->
-    <header class="header" itemscope="itemscope">
-      <div class="header_inner">
+
+    <header class="header container">
+      <div class="header__inner">
         <div class="logo">
-          <h1 class="title">
-            <a href="#">LOGO</a>
+          <h1 class="logo__title">
+            <a href="#" class="logo__link">LOGO</a>
           </h1>
         </div>
         <nav class="nav">
-          <ul class="nav_list">
-            <!-- Add your static navigation links here -->
-            <li class="nav_item"><a href="#">Home</a></li>
-            <li class="nav_item"><a href="#">About</a></li>
-            <li class="nav_item"><a href="#">Services</a></li>
-            <li class="nav_item"><a href="#">Contact</a></li>
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Service</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
           </ul>
         </nav>
       </div>
-      <div class="hamburger" id="js-hamburger">
-        <span class="hamburger_border hamburger_border_top"></span>
-        <span class="hamburger_border hamburger_border_center"></span>
-        <span class="hamburger_border hamburger_border_bottom"></span>
-      </div>
-      <div class="black_bg" id="js-black-bg"></div>
     </header>
-
-    <!-- Loading Spinner -->
-    <div id="loading">
-      <div class="loader"></div>
-    </div>
 
     <!-- Featured Posts -->
     <div class="kv">
-      <div class="container">
-        <!-- Replace this section with your featured posts content -->
-      </div>
+      <div class="container"></div>
     </div>
 
     <!-- Info Section -->
@@ -66,54 +53,116 @@
         <h2 class="c-header">お知らせ・イベント</h2>
 
         <!-- Replace this section with your static content or remove it if not needed -->
-        <ul>
-          <li><a href="#">Static Item 1</a></li>
-          <li><a href="#">Static Item 2</a></li>
-          <li><a href="#">Static Item 3</a></li>
+        <ul class="info__list">
+          <li class="info__list-item">
+            <a href="#" class="info__list-link">Static Item 1</a>
+          </li>
+          <li class="info__list-item">
+            <a href="#" class="info__list-link">Static Item 2</a>
+          </li>
+          <li class="info__list-item">
+            <a href="#" class="info__list-link">Static Item 3</a>
+          </li>
         </ul>
 
-        <div class="info__list">
-          <p class="info__list__text">
-            <a class="info__list__link" href="#">Static Link</a>
+        <div class="info__list-wrap">
+          <p class="info__text">
+            <a class="info__link" href="#">Static Link</a>
           </p>
         </div>
       </div>
     </section>
-
-    <!-- Works Section -->
-    <div class="topPage-works">
-      <section class="works">
-        <h2 class="c-header works__header">作品</h2>
-
-        <!-- Replace this section with your static content or remove it if not needed -->
-        <ul class="col">
-          <li>
-            <a href="#">
-              <div>
-                <p class="thumb">Static Image 1</p>
-              </div>
-            </a>
+    <section class="feature">
+      <div class="feature__inner container">
+        <h2 class="feature__title">快適さへのこだわり</h2>
+        <ul class="feature__list">
+          <li class="feature__item">
+            <div class="feature__list-icon-wrap">
+              <img
+                class="feature__list-icon"
+                src="./material/icon/icon-function.svg"
+                alt=""
+              />
+            </div>
+            <h3 class="feature__list-title">シンプルな機能</h3>
+            <p class="feature__list-text">
+              多機能でない分、わかりやすく・使いやす機能。
+              書くこと、共有することにのみ特化。
+            </p>
           </li>
-          <li>
-            <a href="#">
-              <div>
-                <p class="thumb">Static Image 2</p>
-              </div>
-            </a>
+          <li class="feature__item">
+            <div class="feature__list-icon-wrap">
+              <img
+                class="feature__list-icon"
+                src="./material/icon/icon-document.svg"
+                alt=""
+              />
+            </div>
+            <h3 class="feature__list-title">綺麗なドキュメント</h3>
+            <p class="feature__list-text">
+              見やすいドキュメント、見やすい管理画面。
+              シンプルでわかりやすいデザイン。
+            </p>
           </li>
-          <li>
-            <a href="#">
-              <div>
-                <p class="thumb">Static Image 3</p>
-              </div>
-            </a>
+          <li class="feature__item">
+            <div class="feature__list-icon-wrap">
+              <img
+                class="feature__list-icon"
+                src="./material/icon/icon-editor.svg"
+                alt=""
+              />
+            </div>
+            <h3 class="feature__list-title">書きやすいエディタ</h3>
+            <p class="feature__list-text">
+              ドキュメント作成画面の装飾はショートカッ
+              トを用意。慣れればサクサク。
+            </p>
           </li>
         </ul>
-      </section>
-    </div>
+      </div>
+    </section>
+    <section class="works">
+      <h2 class="works__header c-header">作品</h2>
+      <ul class="works__col col">
+        <li class="works__item">
+          <a href="#" class="works__link">
+            <div class="works__content">
+              <img
+                src="path/to/image1.jpg"
+                alt="Image 1"
+                class="works__thumb thumb"
+              />
+            </div>
+          </a>
+        </li>
+        <li class="works__item">
+          <a href="#" class="works__link">
+            <div class="works__content">
+              <img
+                src="path/to/image2.jpg"
+                alt="Image 2"
+                class="works__thumb thumb"
+              />
+            </div>
+          </a>
+        </li>
+        <li class="works__item">
+          <a href="#" class="works__link">
+            <div class="works__content">
+              <img
+                src="path/to/image3.jpg"
+                alt="Image 3"
+                class="works__thumb thumb"
+              />
+            </div>
+          </a>
+        </li>
+      </ul>
+    </section>
+
     <footer class="footer">
-      <p>made by: Yu Shimatani</p>
-      <p>© Koukichi Shimatani. All rights reserved.</p>
+      <p class="footer__author">made by: Yu Shimatani</p>
+      <p class="footer__copyright">© Yu Shimatani. All rights reserved.</p>
     </footer>
 
     <script src="./js/script.js"></script>

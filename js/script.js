@@ -14,10 +14,10 @@ function toggleNav() {
 }
 toggleNav();
 
-window.onload = function () {
-  // 2秒後にローディングアニメーションを非表示にする
-  setTimeout(function () {
-    const spinner = document.getElementById("loading");
-    spinner.classList.add("loaded");
-  }, 1000);
-};
+// window.onload = function () {
+//   // 2秒後にローディングアニメーションを非表示にする
+//   setTimeout(function () {
+//     const spinner = document.getElementById("loading");
+//     spinner.classList.add("loaded");
+//   }, 1000);
+// };
