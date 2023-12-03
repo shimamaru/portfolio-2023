@@ -21,8 +21,16 @@
   </head>
 
   <body>
-    <!-- Header -->
+    <div class="loader">
+      <div class="loader__border">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <h2>Now Loading...</h2>
+    </div>
 
+    <div id="anim_net"></div>
     <nav role="navigation" class="navigation sp-only container">
       <div class="menuToggle">
         <input type="checkbox" />
@@ -71,38 +79,16 @@
           </div>
         </div>
         <div class="about__coder">
-          <h2 class="about__coder-name">Yuu_Code</h2>
+          <h2 class="about__coder-name ml2">Yuu_Code</h2>
           <p class="about__coder-description">
-            プロフィールをご覧いただきありがとうございます。 <br />
+            プロフィールをご覧いただきありがとうございます。<br />
             私はYuuと申します。ウェブサイトのコーディングと制作が得意で、最新のウェブ技術に精通しています。
-            UI/UXを向上させるための動きのあるウェブアプリケーションを開発したり、WordPressのテーマとして構築します。。私はクールなウェブデザインを採用し、保守管理がしやすいHTML/CSSコーディングを提供します。
+            UI/UXを向上させるための動きのあるウェブアプリケーションを開発
           </p>
         </div>
       </div>
     </div>
 
-    <!-- <section class="info">
-      <div class="info__inner">
-        <h2 class="c-header">お知らせ・イベント</h2>
-        <ul class="info__list">
-          <li class="info__list-item">
-            <a href="#" class="info__list-link">Static Item 1</a>
-          </li>
-          <li class="info__list-item">
-            <a href="#" class="info__list-link">Static Item 2</a>
-          </li>
-          <li class="info__list-item">
-            <a href="#" class="info__list-link">Static Item 3</a>
-          </li>
-        </ul>
-
-        <div class="info__list-wrap">
-          <p class="info__text">
-            <a class="info__link" href="#">Static Link</a>
-          </p>
-        </div>
-      </div>
-    </section> -->
     <section class="feature" id="feature">
       <div class="feature__inner container">
         <h2 class="feature__title">Service</h2>
@@ -200,7 +186,7 @@
         <div class="contact__content">
           <p class="contact__text">
             制作の依頼やご相談など、お気軽にTwitter(X)でお問い合わせくださいませ。
-            <br />下のボタンから飛べます。
+            <br />下のボタンからご連絡いただけます。
           </p>
           <p class="contact__icon">
             <a href="https://twitter.com/jebstrik"
@@ -215,10 +201,13 @@
     </section>
 
     <footer class="footer">
-      <p class="footer__author">made by: Yuu_Code</p>
-      <p class="footer__copyright">© Yu Shimatani. All rights reserved.</p>
+      <!-- <p class="footer__author">made by: Yuu_Code</p> -->
+      <p class="footer__copyright">© Yuu_Code. All rights reserved.</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/vendor/three.r119.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/tengbao/vanta@master/dist/vanta.net.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>

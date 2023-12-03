@@ -62,11 +62,13 @@ li {
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
+  background-color: #ffffff;
 }
 .header .header__inner .logo__link {
   text-decoration: none;
   font-weight: 700;
   font-size: 24px;
+  cursor: pointer;
 }
 @media screen and (max-width: 786px) {
   .header .header__inner .logo__link {
@@ -145,6 +147,7 @@ li {
 }
 .about .about__inner .about__coder {
   width: 50%;
+  color: #ffffff;
 }
 @media screen and (max-width: 786px) {
   .about .about__inner .about__coder {
@@ -169,12 +172,7 @@ li {
 }
 
 .feature {
-  margin: 64px auto 0;
-}
-@media screen and (min-width: 786px) {
-  .feature {
-    margin: 100px auto;
-  }
+  margin: 150px auto;
 }
 .feature .feature__inner {
   color: #404040;
@@ -261,8 +259,7 @@ li {
 }
 
 .works {
-  padding: 20px;
-  margin: 100px auto;
+  margin: 80px auto;
 }
 @media screen and (min-width: 786px) {
   .works .works__inner {
@@ -325,8 +322,7 @@ li {
 }
 
 .contact {
-  padding: 20px;
-  margin: 100px auto;
+  margin: 80px auto;
   text-align: center;
 }
 .contact .contact__inner {
@@ -390,7 +386,7 @@ li {
 
 .footer {
   border-top: 1px solid #e0e0e0;
-  background-color: #505050;
+  background-color: #231c25;
   color: #ffffff;
   padding: 50px;
   text-align: center;
@@ -495,4 +491,63 @@ li {
 
 .menuToggle input:checked ~ ul {
   transform: none;
+}
+
+.letter {
+  display: inline-block;
+}
+
+.loader {
+  z-index: 100;
+  background-color: #231c25;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader .loader__border {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 3px solid #ffffff;
+  animation: animate 5s linear;
+}
+.loader h2 {
+  color: #ffffff;
+}
+
+.loaded {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+#anim_net {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 450px;
+  pointer-events: none;
+  z-index: -999;
+}
+@media screen and (max-width: 786px) {
+  #anim_net {
+    height: 650px;
+  }
+}
+@media screen and (max-width: 576px) {
+  #anim_net {
+    height: 750px;
+  }
 }/*# sourceMappingURL=style.css.map */

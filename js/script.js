@@ -1,23 +1,46 @@
-function toggleNav() {
-  var body = document.body;
-  var hamburger = document.getElementById("js-hamburger");
-  var blackBg = document.getElementById("js-black-bg");
+window.onload = function () {
+  setTimeout(() => {
+    const loader = document.querySelector(".loader");
+    loader.classList.add("loaded");
 
-  //上記の関数のコンソール
+    // 文字が出てくるアニメーション1
+    animateText(".ml2", 600, 1300);
+  }, 1000);
+};
 
-  hamburger.addEventListener("click", function () {
-    body.classList.toggle("nav-open");
-  });
-  blackBg.addEventListener("click", function () {
-    body.classList.remove("nav-open");
+function animateText(selector, duration, delay) {
+  var textWrapper = document.querySelector(selector);
+  textWrapper.innerHTML = textWrapper.textContent.replace(
+    /\S/g,
+    "<span class='letter'>$&</span>"
+  );
+
+  anime.timeline().add({
+    targets: `${selector} .letter`,
+    scale: [4, 1],
+    opacity: [0, 1],
+    translateZ: 0,
+    easing: "easeOutExpo",
+    duration: duration,
+    delay: (el, i) => delay + 40 * i,
   });
 }
-toggleNav();
 
-// window.onload = function () {
-//   // 2秒後にローディングアニメーションを非表示にする
-//   setTimeout(function () {
-//     const spinner = document.getElementById("loading");
-//     spinner.classList.add("loaded");
-//   }, 1000);
-// };
+VANTA.NET({
+  //Add the id of your tag with the # before
+  el: "#anim_net",
+  mouseControls: false,
+  touchControls: false,
+  gyroControls: false,
+  minHeight: 200.0,
+  minWidth: 300.0,
+  scale: 1.0,
+  scaleMobile: 1.0,
+  color: 0xaa9457,
+  // backgroundColor: 0x0,
+  backgroundColor: 0x231c25,
+
+  points: 15.0,
+  maxDistance: 10.0,
+  spacing: 13.0,
+});

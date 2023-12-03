@@ -65,11 +65,13 @@ li {
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
+    background-color: $white;
 
     .logo__link {
       text-decoration: none;
       font-weight: $font-weight-bold;
       font-size: 24px;
+      cursor: pointer;
 
       @media screen and (max-width: $breakpoint) {
         position: fixed;
@@ -151,6 +153,7 @@ li {
     }
     .about__coder {
       width: 50%;
+      color: $white;
       @media screen and (max-width: $breakpoint) {
         margin-top: 50px;
         width: 75%;
@@ -175,86 +178,9 @@ li {
   }
 }
 
-// .info {
-//   width: 90%;
-//   max-width: 780px;
-//   margin: 100px auto;
-
-//   @media only screen and (max-width: 992px) {
-//     margin: 50px auto;
-//   }
-
-//   .info__inner {
-//     text-align: center;
-//     max-width: 580px;
-//     margin: 0 auto;
-
-//     .info__list {
-//       border-top: 1px solid $lighter-gray;
-//       margin-bottom: 40px;
-
-//       .info__list-item {
-//         border-bottom: 1px solid $lighter-gray;
-//         list-style: none;
-
-//         .info__list-link {
-//           padding: 10px 0;
-//           width: 100%;
-//           height: 100%;
-//           display: block;
-//           text-decoration: none;
-//           transition: all 0.3s ease;
-
-//           &:hover {
-//             background-color: $medium-gray;
-//             color: $white;
-//           }
-//         }
-//       }
-//     }
-
-//     .info__list-wrap {
-//       display: flex;
-//       align-items: center;
-//       justify-content: center;
-//       color: $light-gray;
-//       border: $light-gray solid 1px;
-//       padding: 8px;
-//       width: 80%;
-//       margin: 0 auto;
-//       height: 100%;
-//       transition: all 0.3s ease;
-//       cursor: pointer;
-
-//       &:hover {
-//         background-color: $medium-gray;
-//         color: $white;
-//       }
-
-//       .info__text {
-//         display: block;
-//         width: 100%;
-//         height: 100%;
-
-//         .info__link {
-//           color: $light-gray;
-//           display: block;
-//           width: 100%;
-//           height: 100%;
-//           text-decoration: none;
-//         }
-//       }
-//     }
-//   }
-// }
-
 // feature
 .feature {
-  margin: 64px auto 0;
-
-  @media screen and (min-width: $breakpoint) {
-    margin: 100px auto;
-  }
+  margin: 150px auto;
 
   .feature__inner {
     color: $dark-gray;
@@ -343,8 +269,7 @@ li {
 
 // works
 .works {
-  padding: 20px;
-  margin: 100px auto;
+  margin: 80px auto;
 
   .works__inner {
     @media screen and (min-width: $breakpoint) {
@@ -420,8 +345,7 @@ li {
 // スタイリングは任意で追加してください
 
 .contact {
-  padding: 20px;
-  margin: 100px auto;
+  margin: 80px auto;
   text-align: center;
 
   .contact__inner {
@@ -489,7 +413,8 @@ li {
 // footer
 .footer {
   border-top: 1px solid $lighter-gray;
-  background-color: $medium-gray;
+  // background-color: $medium-gray;
+  background-color: $dark-purple;
   color: $white;
   padding: 50px;
   text-align: center;
@@ -601,4 +526,69 @@ li {
 
 .menuToggle input:checked ~ ul {
   transform: none;
+}
+
+// 文字が出てくるアニメーション
+
+.letter {
+  display: inline-block;
+}
+
+// ローディング
+
+.loader {
+  z-index: 100;
+  // background-color: $dark-gray;
+  background-color: $dark-purple;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .loader__border {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 3px solid $white;
+    animation: animate 5s linear;
+  }
+
+  h2 {
+    color: $white;
+  }
+}
+
+.loaded {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#anim_net {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 450px;
+  pointer-events: none;
+  z-index: -999;
+
+  @media screen and (max-width: $breakpoint) {
+    height: 650px;
+  }
+
+  @media screen and (max-width: $breakpoint-sm) {
+    height: 750px;
+  }
 }
