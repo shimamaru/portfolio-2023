@@ -137,6 +137,12 @@ li {
   height: 300px;
   margin: 0 auto;
 }
+@media screen and (max-width: 786px) {
+  .about .about__inner .about__image-wrap .about__image {
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+  }
+}
 .about .about__inner .about__image-wrap .about__image img {
   aspect-ratio: 1/1;
   width: 100%;
@@ -548,6 +554,6 @@ li {
 }
 @media screen and (max-width: 576px) {
   #anim_net {
-    height: 750px;
+    height: 770px;
   }
 }/*# sourceMappingURL=style.css.map */
