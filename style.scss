@@ -20,7 +20,7 @@ body {
   background: #fff;
 }
 
-/* Link styles */
+// 共通
 a {
   text-decoration: none;
   color: $dark-gray;
@@ -41,6 +41,20 @@ li {
   margin-bottom: 20px;
 }
 
+.sp-only {
+  display: none;
+  @media screen and (max-width: $breakpoint) {
+    display: block;
+  }
+}
+
+.pc-only {
+  display: block;
+  @media screen and (max-width: $breakpoint) {
+    display: none;
+  }
+}
+
 // header
 .header {
   padding: 10px 0;
@@ -52,11 +66,15 @@ li {
     align-items: center;
     padding: 20px 0;
 
-    .header__title {
-      .logo__link {
-        text-decoration: none;
-        font-weight: $font-weight-bold;
-        font-size: 24px;
+    .logo__link {
+      text-decoration: none;
+      font-weight: $font-weight-bold;
+      font-size: 24px;
+
+      @media screen and (max-width: $breakpoint) {
+        position: fixed;
+        top: 25px;
+        right: 50px;
       }
     }
 
@@ -76,6 +94,7 @@ li {
           display: inline-block;
           text-decoration: none;
 
+          // ホバー時のアンダーライン
           &::after {
             position: absolute;
             bottom: -3px;
@@ -101,14 +120,21 @@ li {
 // about
 .about {
   margin: 100px auto;
+
   .about__inner {
     display: flex;
     align-items: center;
     justify-content: center;
+    @media screen and (max-width: $breakpoint) {
+      flex-direction: column;
+    }
 
     .about__image-wrap {
       margin: 0 auto;
       width: 50%;
+      @media screen and (max-width: $breakpoint) {
+        width: auto;
+      }
       .about__image {
         width: 300px;
         height: 300px;
@@ -125,11 +151,19 @@ li {
     }
     .about__coder {
       width: 50%;
+      @media screen and (max-width: $breakpoint) {
+        margin-top: 50px;
+        width: 75%;
+      }
 
       .about__coder-name {
         font-size: 32px;
         font-weight: 600;
         margin-bottom: 20px;
+
+        @media screen and (max-width: $breakpoint) {
+          text-align: center;
+        }
       }
 
       .about__coder-description {
@@ -398,8 +432,12 @@ li {
       margin: 0 auto;
       text-align: center;
       padding-bottom: 8px;
-      font-size: 32px;
+      font-size: $font-size-xxxl;
       font-weight: $font-weight-bold;
+
+      @media screen and (min-width: $breakpoint) {
+        font-size: 32px;
+      }
     }
     .contact__content {
       display: flex;
@@ -463,4 +501,104 @@ li {
   .footer__copyright {
     font-size: 14px;
   }
+}
+
+// ハンバーガーメニュー
+.navigation {
+  position: fixed;
+  // top: 50px;
+  // left: 50px;
+  top: 25px;
+  left: 25px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.menuToggle a {
+  text-decoration: none;
+  color: $dark-gray;
+  transition: color 0.3s ease;
+}
+
+.menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  -webkit-touch-callout: none;
+}
+
+.menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background-color: $dark-gray;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+.menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+.menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+.menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background-color: $dark-gray;
+}
+
+.menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background-color: $white;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+
+  .menu__link {
+    text-align: center;
+    position: relative;
+    font-size: $font-size-xl;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+.menuToggle input:checked ~ ul {
+  transform: none;
 }
