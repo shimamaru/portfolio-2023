@@ -23,40 +23,6 @@
   <body>
     <!-- Header -->
 
-    <nav role="navigation">
-      <div id="menuToggle">
-        <!--
-    A fake / hidden checkbox is used as click reciever,
-    so you can use the :checked selector on it.
-    -->
-        <input type="checkbox" />
-
-        <!--
-    Some spans to act as a hamburger.
-    
-    They are acting like a real hamburger,
-    not that McDonalds stuff.
-    -->
-        <span></span>
-        <span></span>
-        <span></span>
-
-        <!--
-    Too bad the menu has to be inside of the button
-    but hey, it's pure CSS magic.
-    -->
-        <ul id="menu">
-          <a href="#"><li>Home</li></a>
-          <a href="#"><li>About</li></a>
-          <a href="#"><li>Info</li></a>
-          <a href="#"><li>Contact</li></a>
-          <a href="https://erikterwan.com/" target="_blank"
-            ><li>Show me more</li></a
-          >
-        </ul>
-      </div>
-    </nav>
-
     <header class="header container">
       <div class="header__inner">
         <div class="logo">
@@ -93,7 +59,7 @@
         <div class="about__coder">
           <h2 class="about__coder-name">Yuu_Code</h2>
           <p class="about__coder-description">
-            ようこそ、私のプロフィールへ。 <br />
+            プロフィールをご覧いただきありがとうございます。 <br />
             私はYuuと申します。ウェブサイトのコーディングと制作が得意で、最新のウェブ技術に精通しています。
             UI/UXを向上させるための動きのあるウェブアプリケーションを開発したり、WordPressのテーマとして構築します。。私はクールなウェブデザインを採用し、保守管理がしやすいHTML/CSSコーディングを提供します。
           </p>
@@ -171,42 +137,47 @@
     </section>
 
     <section class="works container" id="works">
-      <h2 class="works__header c-header">Works</h2>
-      <ul class="works__col">
-        <li class="works__item">
-          <a href="https://profile-site-orcin.vercel.app/" class="works__link">
-            <div class="works__content">
-              <img
-                src="./img/portfolio1.png"
-                alt="Image 1"
-                class="works__thumb thumb"
-              />
-            </div>
-          </a>
-        </li>
-        <li class="works__item">
-          <a href="https://fitness-site-nine.vercel.app/" class="works__link">
-            <div class="works__content">
-              <img
-                src="./img/portfolio2.png"
-                alt="Image 2"
-                class="works__thumb thumb"
-              />
-            </div>
-          </a>
-        </li>
-        <li class="works__item">
-          <a href="https://website1-rho.vercel.app/" class="works__link">
-            <div class="works__content">
-              <img
-                src="./img/portfolio3.png"
-                alt="Image 3"
-                class="works__thumb thumb"
-              />
-            </div>
-          </a>
-        </li>
-      </ul>
+      <div class="works__inner">
+        <h2 class="works__header c-header">Works</h2>
+        <ul class="works__col">
+          <li class="works__item">
+            <a
+              href="https://profile-site-orcin.vercel.app/"
+              class="works__link"
+            >
+              <div class="works__content">
+                <img
+                  src="./img/portfolio1.png"
+                  alt="Image 1"
+                  class="works__thumb thumb"
+                />
+              </div>
+            </a>
+          </li>
+          <li class="works__item">
+            <a href="https://fitness-site-nine.vercel.app/" class="works__link">
+              <div class="works__content">
+                <img
+                  src="./img/portfolio2.png"
+                  alt="Image 2"
+                  class="works__thumb thumb"
+                />
+              </div>
+            </a>
+          </li>
+          <li class="works__item">
+            <a href="https://website1-rho.vercel.app/" class="works__link">
+              <div class="works__content">
+                <img
+                  src="./img/portfolio3.png"
+                  alt="Image 3"
+                  class="works__thumb thumb"
+                />
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
     </section>
 
     <section class="contact container" id="contact">
@@ -219,7 +190,7 @@
           </p>
           <p class="contact__icon">
             <a href="https://twitter.com/jebstrik"
-              ><img src="./img/twitter.svg" alt=""
+              ><img src="./img/twitterBlack.svg" alt=""
             /></a>
           </p>
           <a href="https://twitter.com/jebstrik" class="contact__button"
@@ -230,7 +201,7 @@
     </section>
 
     <footer class="footer">
-      <p class="footer__author">made by: Yu Shimatani</p>
+      <p class="footer__author">made by: Yuu_Code</p>
       <p class="footer__copyright">© Yu Shimatani. All rights reserved.</p>
     </footer>
 
