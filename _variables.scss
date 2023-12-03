@@ -2,7 +2,9 @@
 $black: #000000;
 // 黒寄りのグレー
 $darker-gray: #2b2b2b;
-$dark-gray: #333333;
+// $dark-gray: #333333;
+$dark-gray: #404040;
+// もう少し濃ゆいグレー
 $medium-gray: #505050;
 $light-gray: #a5a5a5;
 $gray: #a9a9a9;
@@ -11,27 +13,10 @@ $off-white: #ecebeb;
 $extra-light-gray: #eeeeee;
 $white: #ffffff;
 
-// breakpoint
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-
 //
 
-// color
-$bg-base: #fff;
-$bg-light: #eceff4;
-$bg-dark: #2d3440;
-$bg-button: #4c566a;
-$bg-button-hover: #2e3440;
-$bg-icon: #d8dee9;
-$icon: #5e81ac;
-$icon-light: #eceff4;
-$font-light: #eceff4;
-$font-base: #4c566a;
-$logo: #4c566a;
-
 //width
+$breakpoint-sm: 576px;
 $breakpoint: 786px;
 $max-width-lg: 1080px;
 

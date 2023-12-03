@@ -10,14 +10,14 @@ body {
   font-family: "Shippori Mincho B1", serif;
   font-weight: 300;
   -webkit-text-size-adjust: 100%;
-  color: #333333;
+  color: #404040;
   background: #fff;
 }
 
 /* Link styles */
 a {
   text-decoration: none;
-  color: #333333;
+  color: #404040;
 }
 
 li {
@@ -36,15 +36,148 @@ li {
   margin-bottom: 20px;
 }
 
+/*
+ * Made by Erik Terwan
+ * 24th of November 2015
+ * MIT License
+ *
+ *
+ * If you are thinking of using this in
+ * production code, beware of the browser
+ * prefixes.
+ */
+body {
+  margin: 0;
+  padding: 0;
+  /* make it look decent enough */
+  background: #232323;
+  color: #cdcdcd;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+}
+
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 50px;
+  left: 50px;
+  z-index: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
+}
+
+#menuToggle a {
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover {
+  color: tomato;
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #cdcdcd;
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul {
+  transform: none;
+}
+
 .header {
   padding: 10px 0;
-  color: #333333;
+  color: #404040;
 }
 .header .header__inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
+  padding: 20px 0;
 }
 .header .header__inner .header__title .logo__link {
   text-decoration: none;
@@ -59,81 +192,70 @@ li {
 }
 .header .header__inner .nav__list .nav__item .nav__link {
   text-decoration: none;
-  color: #333333;
+  color: #404040;
   transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
 }
-.header .header__inner .nav__list .nav__item .nav__link:hover {
-  color: #505050;
+.header .header__inner .nav__list .nav__item .nav__link::after {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: #000000;
+  transform: scale(0, 1);
+  transform-origin: right top;
+  transition: transform 0.3s;
+}
+.header .header__inner .nav__list .nav__item .nav__link:hover::after {
+  transform-origin: left top;
+  transform: scale(1, 1);
 }
 
-/* Information Section Styles */
-.info {
-  width: 90%;
-  max-width: 780px;
+.about {
   margin: 100px auto;
 }
-@media only screen and (max-width: 992px) {
-  .info {
-    margin: 50px auto;
-  }
-}
-.info .info__inner {
-  text-align: center;
-  max-width: 580px;
-  margin: 0 auto;
-}
-.info .info__inner .info__list {
-  border-top: 1px solid #e0e0e0;
-  margin-bottom: 40px;
-}
-.info .info__inner .info__list .info__list-item {
-  border-bottom: 1px solid #e0e0e0;
-  list-style: none;
-}
-.info .info__inner .info__list .info__list-item .info__list-link {
-  padding: 10px 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.info .info__inner .info__list .info__list-item .info__list-link:hover {
-  background-color: #505050;
-  color: #ffffff;
-}
-.info .info__inner .info__list-wrap {
+.about .about__inner {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #a5a5a5;
-  border: #a5a5a5 solid 1px;
-  padding: 8px;
-  width: 80%;
+}
+.about .about__inner .about__image-wrap {
   margin: 0 auto;
-  height: 100%;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  width: 50%;
 }
-.info .info__inner .info__list-wrap:hover {
-  background-color: #505050;
-  color: #ffffff;
+.about .about__inner .about__image-wrap .about__image {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
 }
-.info .info__inner .info__list-wrap .info__text {
-  display: block;
+.about .about__inner .about__image-wrap .about__image img {
+  aspect-ratio: 1/1;
   width: 100%;
-  height: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
 }
-.info .info__inner .info__list-wrap .info__text .info__link {
-  color: #a5a5a5;
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
+.about .about__inner .about__coder {
+  width: 50%;
+}
+.about .about__inner .about__coder .about__coder-name {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.about .about__inner .about__coder .about__coder-description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
 }
 
 .feature .feature__inner {
-  color: #4c566a;
+  color: #404040;
   margin: 64px auto 0;
   text-align: center;
 }
@@ -172,18 +294,26 @@ li {
   }
 }
 .feature .feature__inner .feature__list .feature__item .feature__list-icon-wrap {
-  border-radius: 30px;
+  border-radius: 50%;
   width: 60px;
   height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  background-color: #eceff4;
+}
+.feature .feature__inner .feature__list .feature__item .feature__list-icon-wrap:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 .feature .feature__inner .feature__list .feature__item .feature__list-icon-wrap .feature__list-icon {
-  border: 50%;
   margin: 0 auto;
+  width: 40px;
+  height: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: transparent;
 }
 .feature .feature__inner .feature__list .feature__item .feature__list-title {
   margin: 16px 0;
@@ -209,28 +339,43 @@ li {
 }
 
 .works {
-  background-color: #eee;
   padding: 20px;
+  margin: 80px auto;
 }
 .works .works__header {
-  text-align: center;
+  padding-bottom: 8px;
   font-size: 24px;
-  color: #333;
+  font-weight: 700;
+  margin: 0 auto;
+  text-align: center;
+}
+@media screen and (min-width: 786px) {
+  .works .works__header {
+    font-size: 32px;
+  }
 }
 .works .works__col {
+  margin-top: 40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
-  margin: 0;
   padding: 0;
+}
+@media screen and (max-width: 786px) {
+  .works .works__col {
+    flex-direction: column;
+  }
 }
 .works .works__col .works__item {
   width: calc(33.33% - 20px);
   margin-bottom: 20px;
 }
-.works .works__col .works__item:nth-child(3n) {
-  margin-right: 0;
+@media screen and (max-width: 786px) {
+  .works .works__col .works__item {
+    width: 80%;
+    margin: 0 auto 20px;
+  }
 }
 .works .works__col .works__item .works__link {
   display: block;
@@ -248,13 +393,74 @@ li {
   transition: transform 0.3s ease;
 }
 .works .works__col .works__item .works__link .works__content img:hover {
-  transform: scale(1.1);
+  transform: scale(1.075);
+  transition: transform 0.3s ease;
+}
+
+.contact {
+  padding: 20px;
+  margin: 80px auto;
+  text-align: center;
+}
+.contact .contact__inner {
+  width: 70%;
+  margin: 0 auto;
+}
+.contact .contact__inner .contact__title {
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 8px;
+  font-size: 32px;
+  font-weight: 700;
+}
+.contact .contact__inner .contact__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.contact .contact__inner .contact__content .contact__text {
+  line-height: 171.429%;
+  margin-top: 40px;
+}
+.contact .contact__inner .contact__content .contact__icon {
+  width: 40px;
+  height: 40px;
+  margin: 40px auto 0;
+}
+.contact .contact__inner .contact__content .contact__icon img {
+  width: 100%;
+  height: 100%;
+}
+.contact .contact__inner .contact__content .contact__icon img:hover {
+  transition: all 0.3s ease;
+  transform: scale(1.2);
+  content: url("./img/twitterBlack.svg");
+}
+.contact .contact__inner .contact__content .contact__button {
+  max-width: 200px;
+  margin: 25px auto 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: 1px solid #404040;
+  background-color: #ffffff;
+  color: #404040;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.contact .contact__inner .contact__content .contact__button:hover {
+  background-color: #404040;
+  color: #ffffff;
+  transition: all 0.1s ease;
 }
 
 .footer {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #505050;
+  color: #ffffff;
+  padding: 50px;
   text-align: center;
 }
 .footer .footer__author {
