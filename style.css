@@ -5,6 +5,10 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
 @import url(https://fonts.googleapis.com/css?family=Modern+Antiqua);
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font: 14px/1.9 "Noto Sans JP", Arial, Verdana, 游ゴシック, YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, sans-serif;
   font-family: "Shippori Mincho B1", serif;
@@ -63,6 +67,13 @@ li {
   margin: 0 auto;
   padding: 5px 0;
   background-color: #ffffff;
+  opacity: 0.95;
+  z-index: 500;
+}
+@media screen and (max-width: 786px) {
+  .header {
+    padding: 15px 0;
+  }
 }
 .header .header__inner {
   display: flex;
@@ -116,11 +127,44 @@ li {
   transform: scale(1, 1);
 }
 
+#anim_net {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding-top: 50px;
+  border: 1px;
+  height: calc(100vh - 150px);
+  pointer-events: none;
+  z-index: -999;
+}
+@media screen and (max-width: 786px) {
+  #anim_net {
+    height: calc(100vh - 50px);
+  }
+}
+@media screen and (max-width: 576px) {
+  #anim_net {
+    height: 100vh;
+  }
+}
+
 .about {
   height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+@media screen and (max-width: 786px) {
+  .about {
+    margin-top: 40px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .about {
+    padding-top: 80px;
+    height: 100vh;
+  }
 }
 .about .about__inner {
   display: flex;
@@ -130,6 +174,8 @@ li {
 @media screen and (max-width: 786px) {
   .about .about__inner {
     flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
   }
 }
 .about .about__inner .about__image-wrap {
@@ -142,14 +188,24 @@ li {
   }
 }
 .about .about__inner .about__image-wrap .about__image {
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  height: 300px;
   margin: 0 auto;
+  border-radius: 50%;
+  transition: all 0.3s ease;
 }
 @media screen and (max-width: 786px) {
   .about .about__inner .about__image-wrap .about__image {
+    width: 250px;
+    height: 250px;
     border: 1px solid #ffffff;
     border-radius: 50%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .about .about__inner .about__image-wrap .about__image {
+    width: 200px;
+    height: 200px;
   }
 }
 .about .about__inner .about__image-wrap .about__image img {
@@ -166,12 +222,17 @@ li {
 }
 @media screen and (max-width: 786px) {
   .about .about__inner .about__coder {
-    margin-top: 50px;
+    margin-top: 40px;
     width: 75%;
   }
 }
+@media screen and (max-width: 576px) {
+  .about .about__inner .about__coder {
+    width: 90%;
+  }
+}
 .about .about__inner .about__coder .about__coder-name {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -181,23 +242,37 @@ li {
   }
 }
 .about .about__inner .about__coder .about__coder-description {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.75;
+}
+@media screen and (max-width: 786px) {
+  .about .about__inner .about__coder .about__coder-description {
+    font-size: 14px;
+  }
 }
 .about .about__scroll {
   margin: 40px auto 0;
   color: #ffffff;
-  opacity: 0.7;
   border: 1px solid #ffffff;
   cursor: pointer;
   padding: 10px 15px;
   width: 100px;
   text-align: center;
 }
+.about .about__scroll:hover {
+  background-color: #ffffff;
+  color: #404040;
+  transition: all 0.3s ease;
+}
 
 .feature {
-  margin: 150px auto;
+  margin: 0px auto;
+}
+@media screen and (max-width: 786px) {
+  .feature {
+    padding-top: 80px;
+  }
 }
 .feature .feature__inner {
   color: #404040;
@@ -284,7 +359,8 @@ li {
 }
 
 .works {
-  margin: 80px auto;
+  margin: 0px auto;
+  padding-top: 80px;
 }
 @media screen and (min-width: 786px) {
   .works .works__inner {
@@ -353,6 +429,11 @@ li {
 .contact .contact__inner {
   width: 70%;
   margin: 0 auto;
+}
+@media screen and (max-width: 786px) {
+  .contact .contact__inner {
+    width: 95%;
+  }
 }
 .contact .contact__inner .contact__title {
   margin: 0 auto;
@@ -425,9 +506,9 @@ li {
 
 .navigation {
   position: fixed;
+  z-index: 700;
   top: 25px;
   left: 25px;
-  z-index: 1;
   -webkit-user-select: none;
   -moz-user-select: none;
        user-select: none;
@@ -523,7 +604,7 @@ li {
 }
 
 .loader {
-  z-index: 100;
+  z-index: 999;
   background-color: #231c25;
   position: fixed;
   width: 100%;
@@ -571,23 +652,32 @@ li {
     transform: rotate(360deg);
   }
 }
-#anim_net {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  padding: 50px;
-  border: 1px;
-  height: calc(100vh - 10px);
-  pointer-events: none;
-  z-index: -999;
+.anim-box.fadeup.is-animated {
+  animation: fadeup 1s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }
-@media screen and (max-width: 786px) {
-  #anim_net {
-    height: 650px;
+
+@keyframes fadeup {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
-@media screen and (max-width: 576px) {
-  #anim_net {
-    height: 770px;
-  }
+/* Add your existing styles here */
+/* Initially hide the feature items */
+.feature__item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.feature__item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }/*# sourceMappingURL=style.css.map */

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yuu_Code</title>
+    <link rel="icon" href="./img/man-25.jpg" type="image/png" />
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/reset.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,22 +33,20 @@
 
     <div id="anim_net"></div>
 
-    <div class="navigation-wrap">
-      <nav role="navigation" class="navigation sp-only container">
-        <div class="menuToggle">
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-          <ul class="menu">
-            <a href="#about" class="menu__link">About</a>
-            <a href="#feature" class="menu__link">Service</a>
-            <a href="#works" class="menu__link">works</a>
-            <a href="#contact" class="menu__link">Contact</a>
-          </ul>
-        </div>
-      </nav>
-    </div>
+    <nav role="navigation" class="navigation sp-only container">
+      <div class="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul class="menu">
+          <a href="#about" class="menu__link">About</a>
+          <a href="#feature" class="menu__link">Service</a>
+          <a href="#works" class="menu__link">works</a>
+          <a href="#contact" class="menu__link">Contact</a>
+        </ul>
+      </div>
+    </nav>
     <header class="header">
       <div class="header__inner container">
         <div class="logo">
@@ -74,7 +73,7 @@
       </div>
     </header>
 
-    <section class="about">
+    <section class="about" id="about">
       <div class="about__inner container">
         <div class="about__image-wrap">
           <div class="about__image">
@@ -85,7 +84,7 @@
           <h2 class="about__coder-name ml2">Yuu_Code</h2>
           <p class="about__coder-description">
             プロフィールをご覧いただきありがとうございます。<br />
-            私はYuuと申します。ウェブサイトのコーディングと制作が得意で、最新のウェブ技術に精通しています。
+            Yuuと申します。ウェブサイトのコーディングと制作が得意で、最新のウェブ技術に精通しています。
             UI/UXを向上させるための動きのあるウェブアプリケーションを開発することが得意です。
           </p>
         </div>
@@ -209,6 +208,7 @@
       <p class="footer__copyright">© Yuu_Code. All rights reserved.</p>
     </footer>
 
+    <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/vendor/three.r119.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/tengbao/vanta@master/dist/vanta.net.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>

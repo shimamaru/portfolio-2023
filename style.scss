@@ -9,6 +9,9 @@
 @import url(https://fonts.googleapis.com/css?family=Modern+Antiqua);
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 
+html {
+  scroll-behavior: smooth;
+}
 body {
   font: 14px/1.9 "Noto Sans JP", Arial, Verdana, 游ゴシック, YuGothic,
     "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo,
@@ -67,6 +70,12 @@ li {
   margin: 0 auto;
   padding: 5px 0;
   background-color: $white;
+  opacity: 0.95;
+  z-index: 500;
+
+  @media screen and (max-width: $breakpoint) {
+    padding: 15px 0;
+  }
 
   .header__inner {
     display: flex;
@@ -126,12 +135,42 @@ li {
   }
 }
 
+#anim_net {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding-top: 50px;
+  border: 1px;
+  height: calc(100vh - 150px);
+  pointer-events: none;
+  z-index: -999;
+
+  @media screen and (max-width: $breakpoint) {
+    height: calc(100vh - 50px);
+  }
+
+  @media screen and (max-width: $breakpoint-sm) {
+    // height: calc(100vh);
+    height: calc(100vh);
+  }
+}
+
 // about
 .about {
   height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media screen and (max-width: $breakpoint) {
+    margin-top: 40px;
+  }
+
+  @media screen and (max-width: $breakpoint-sm) {
+    padding-top: 80px;
+    height: calc(100vh);
+  }
 
   .about__inner {
     // padding-top: 200px;
@@ -140,6 +179,8 @@ li {
     justify-content: center;
     @media screen and (max-width: $breakpoint) {
       flex-direction: column;
+      width: 100%;
+      margin: 0 auto;
     }
 
     .about__image-wrap {
@@ -148,14 +189,24 @@ li {
       @media screen and (max-width: $breakpoint) {
         width: auto;
       }
+
       .about__image {
-        width: 350px;
-        height: 350px;
+        width: 300px;
+        height: 300px;
         margin: 0 auto;
+        border-radius: 50%;
+        transition: all 0.3s ease;
 
         @media screen and (max-width: $breakpoint) {
+          width: 250px;
+          height: 250px;
           border: 1px solid $white;
           border-radius: 50%;
+        }
+
+        @media screen and (max-width: $breakpoint-sm) {
+          width: 200px;
+          height: 200px;
         }
         img {
           aspect-ratio: 1 / 1;
@@ -170,12 +221,17 @@ li {
       width: 50%;
       color: $white;
       @media screen and (max-width: $breakpoint) {
-        margin-top: 50px;
+        // margin-top: 50px;
+        margin-top: 40px;
         width: 75%;
       }
 
+      @media screen and (max-width: $breakpoint-sm) {
+        width: 90%;
+      }
+
       .about__coder-name {
-        font-size: 40px;
+        font-size: 32px;
         font-weight: 600;
         margin-bottom: 20px;
 
@@ -185,27 +241,41 @@ li {
       }
 
       .about__coder-description {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 400;
         line-height: 1.75;
+
+        @media screen and (max-width: $breakpoint) {
+          font-size: 14px;
+        }
       }
     }
   }
   .about__scroll {
     margin: 40px auto 0;
     color: $white;
-    opacity: 0.7;
     border: 1px solid $white;
     cursor: pointer;
     padding: 10px 15px;
     width: 100px;
     text-align: center;
+
+    &:hover {
+      background-color: $white;
+      color: $dark-gray;
+      transition: all 0.3s ease;
+    }
   }
 }
 
 // feature
 .feature {
-  margin: 150px auto;
+  // margin: 150px auto;
+  margin: 0px auto;
+
+  @media screen and (max-width: $breakpoint) {
+    padding-top: 80px;
+  }
 
   .feature__inner {
     color: $dark-gray;
@@ -294,7 +364,9 @@ li {
 
 // works
 .works {
-  margin: 80px auto;
+  // margin: 80px auto;
+  margin: 0px auto;
+  padding-top: 80px;
 
   .works__inner {
     @media screen and (min-width: $breakpoint) {
@@ -377,6 +449,10 @@ li {
     width: 70%;
     margin: 0 auto;
 
+    @media screen and (max-width: $breakpoint) {
+      width: 95%;
+    }
+
     .contact__title {
       margin: 0 auto;
       text-align: center;
@@ -457,12 +533,12 @@ li {
 
 .navigation {
   position: fixed;
+  z-index: 700;
 
   // top: 50px;
   // left: 50px;
   top: 25px;
   left: 25px;
-  z-index: 1;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -564,7 +640,7 @@ li {
 // ローディング
 
 .loader {
-  z-index: 100;
+  z-index: 999;
   background-color: $dark-purple;
   position: fixed;
   width: 100%;
@@ -623,24 +699,35 @@ li {
 
 // Vanta.js
 
-#anim_net {
-  position: absolute;
-  // top: 100px;
-  left: 0;
-  width: 100%;
-  padding: 50px;
-  border: 1px;
-  // height: 450px
-  height: calc(100vh - 10px);
-  // zoom: 0.7;
-  pointer-events: none;
-  z-index: -999;
+// カードのアニメーション
+.anim-box.fadeup.is-animated {
+  animation: fadeup 1s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
 
-  @media screen and (max-width: $breakpoint) {
-    height: 650px;
+@keyframes fadeup {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
   }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  @media screen and (max-width: $breakpoint-sm) {
-    height: 770px;
-  }
+/* Add your existing styles here */
+
+/* Initially hide the feature items */
+.feature__item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.feature__item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
