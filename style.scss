@@ -24,6 +24,8 @@ body {
 a {
   text-decoration: none;
   color: $dark-gray;
+  // リンクを踏んだ時のスクロールを滑らかにする
+  scroll-behavior: smooth;
 }
 
 li {
@@ -57,15 +59,20 @@ li {
 
 // header
 .header {
-  padding: 10px 0;
   color: $dark-gray;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  padding: 5px 0;
+  background-color: $white;
 
   .header__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
-    background-color: $white;
 
     .logo__link {
       text-decoration: none;
@@ -121,9 +128,13 @@ li {
 
 // about
 .about {
-  margin: 100px auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   .about__inner {
+    // padding-top: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -138,8 +149,8 @@ li {
         width: auto;
       }
       .about__image {
-        width: 300px;
-        height: 300px;
+        width: 350px;
+        height: 350px;
         margin: 0 auto;
 
         @media screen and (max-width: $breakpoint) {
@@ -164,7 +175,7 @@ li {
       }
 
       .about__coder-name {
-        font-size: 32px;
+        font-size: 40px;
         font-weight: 600;
         margin-bottom: 20px;
 
@@ -174,11 +185,21 @@ li {
       }
 
       .about__coder-description {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 400;
         line-height: 1.75;
       }
     }
+  }
+  .about__scroll {
+    margin: 40px auto 0;
+    color: $white;
+    opacity: 0.7;
+    border: 1px solid $white;
+    cursor: pointer;
+    padding: 10px 15px;
+    width: 100px;
+    text-align: center;
   }
 }
 
@@ -601,13 +622,17 @@ li {
 }
 
 // Vanta.js
+
 #anim_net {
   position: absolute;
-  top: 100px;
+  // top: 100px;
   left: 0;
   width: 100%;
-  // height: 450px;
-
+  padding: 50px;
+  border: 1px;
+  // height: 450px
+  height: calc(100vh - 10px);
+  // zoom: 0.7;
   pointer-events: none;
   z-index: -999;
 

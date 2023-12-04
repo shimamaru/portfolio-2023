@@ -17,6 +17,7 @@ body {
 a {
   text-decoration: none;
   color: #404040;
+  scroll-behavior: smooth;
 }
 
 li {
@@ -54,15 +55,20 @@ li {
 }
 
 .header {
-  padding: 10px 0;
   color: #404040;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
+  padding: 5px 0;
+  background-color: #ffffff;
 }
 .header .header__inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  background-color: #ffffff;
 }
 .header .header__inner .logo__link {
   text-decoration: none;
@@ -111,7 +117,10 @@ li {
 }
 
 .about {
-  margin: 100px auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .about .about__inner {
   display: flex;
@@ -133,8 +142,8 @@ li {
   }
 }
 .about .about__inner .about__image-wrap .about__image {
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   margin: 0 auto;
 }
 @media screen and (max-width: 786px) {
@@ -162,7 +171,7 @@ li {
   }
 }
 .about .about__inner .about__coder .about__coder-name {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 600;
   margin-bottom: 20px;
 }
@@ -172,9 +181,19 @@ li {
   }
 }
 .about .about__inner .about__coder .about__coder-description {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.75;
+}
+.about .about__scroll {
+  margin: 40px auto 0;
+  color: #ffffff;
+  opacity: 0.7;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  padding: 10px 15px;
+  width: 100px;
+  text-align: center;
 }
 
 .feature {
@@ -554,9 +573,11 @@ li {
 }
 #anim_net {
   position: absolute;
-  top: 100px;
   left: 0;
   width: 100%;
+  padding: 50px;
+  border: 1px;
+  height: calc(100vh - 10px);
   pointer-events: none;
   z-index: -999;
 }
