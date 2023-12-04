@@ -524,6 +524,20 @@ li {
   color: #ffffff;
 }
 
+.loader span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #ffffff;
+  animation: animate 5s linear;
+}
+
+.loader span:nth-child(3) {
+  animation-duration: 3s;
+}
+
 .loaded {
   opacity: 0;
   visibility: hidden;
@@ -543,7 +557,6 @@ li {
   top: 100px;
   left: 0;
   width: 100%;
-  height: 450px;
   pointer-events: none;
   z-index: -999;
 }

@@ -5,7 +5,7 @@ window.onload = function () {
 
     // 文字が出てくるアニメーション1
     animateText(".ml2", 600, 1300);
-  }, 1000);
+  }, 1300);
 };
 
 function animateText(selector, duration, delay) {
@@ -31,18 +31,13 @@ VANTA.NET({
   el: "#anim_net",
   mouseControls: false,
   touchControls: false,
-  gyroControls: false,
+  gyroControls: true,
   minHeight: 200.0,
   minWidth: 300.0,
   scale: 1.0,
   scaleMobile: 1.0,
   color: 0xaa9457,
-  // backgroundColor: 0x0,
   backgroundColor: 0x231c25,
-
-  points: 15.0,
-  maxDistance: 10.0,
-  spacing: 13.0,
 });
 
 //

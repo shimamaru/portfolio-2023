@@ -544,7 +544,6 @@ li {
 
 .loader {
   z-index: 100;
-  // background-color: $dark-gray;
   background-color: $dark-purple;
   position: fixed;
   width: 100%;
@@ -566,6 +565,26 @@ li {
   }
 }
 
+.loader span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 3px solid $white;
+  animation: animate 5s linear;
+}
+
+.loader span:nth-child(1) {
+}
+
+.loader span:nth-child(2) {
+}
+
+.loader span:nth-child(3) {
+  animation-duration: 3s;
+}
+
 .loaded {
   opacity: 0;
   visibility: hidden;
@@ -581,12 +600,14 @@ li {
   }
 }
 
+// Vanta.js
 #anim_net {
   position: absolute;
   top: 100px;
   left: 0;
   width: 100%;
-  height: 450px;
+  // height: 450px;
+
   pointer-events: none;
   z-index: -999;
 
